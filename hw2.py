@@ -21,7 +21,7 @@ def get_shop_list_by_dishes(dishes, person_count):
         for ingredient in ingredients:
             key = ingredient['ingredient_name']
             if key in ing_list.keys():
-                ing_list[key]['quantity'] *= 2
+                ing_list[key]['quantity'] += int(ingredient['quantity']) * person_count
             else:
                 ing_list[key] = {'quantity': int(ingredient['quantity']) * person_count, 'measure': ingredient['measure']}
     return print(ing_list)
@@ -29,4 +29,4 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 print(open_file())
 print()
-get_shop_list_by_dishes(['Омлет', 'Омлет'], 2)
+get_shop_list_by_dishes(['Фахитос', 'Омлет'], 2)
